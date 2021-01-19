@@ -20,6 +20,7 @@
     (->> dir
       .listFiles
       (filter #(.isDirectory ^File %))
+      (remove #(-> % .getPath (.contains ".idea")))
       (mapcat all-files))
     (->> dir
       .listFiles
